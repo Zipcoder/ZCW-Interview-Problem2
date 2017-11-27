@@ -6,27 +6,27 @@ public class Problem2 {
 
     public static void main(String[] args) {
         System.out.println(fibonacci(50));
-
         System.out.println(fibonacci2(50));
     }
 
 
-    public static int fibonacci(int number) {
-
+    public static Integer fibonacci(int number) {
+        String fibonacci = " ";
         if (number == 1 || number == 2) {
-
             return 1;
-
         }
-
-        return fibonacci(number - 1) + fibonacci(number - 2);
-
+        Integer i = 0;
+        while (number != 1 || number != 2) {
+            i = fibonacci(number - 1) + fibonacci(number - 2);
+        }
+        return Integer.valueOf(i.toString());
     }
 
-    public static int fibonacci2(int number) {
+
+    public static String fibonacci2(int number) {
 
         if (number == 1 || number == 2) {
-            return 1;
+            return String.valueOf(1);
         }
 
         int fibo1 = 1, fibo2 = 1, fibonacci = 1;
@@ -35,10 +35,11 @@ public class Problem2 {
             fibonacci = fibo1 + fibo2;
             fibo1 = fibo2;
             fibo2 = fibonacci;
+            System.out.println(fibonacci);
 
         }
 
-        return fibonacci;
+        return String.valueOf(fibonacci);
 
     }
 }
