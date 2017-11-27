@@ -5,7 +5,6 @@ import org.junit.Test;
 public class Problem2Test {
 
     Problem2 prob2 = new Problem2();
-
     int n = 7;
 
     @Test
