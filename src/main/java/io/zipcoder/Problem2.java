@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 public class Problem2 {
 
+    private ArrayList<Integer> fibonacciSequence = new ArrayList<>();
+    private Integer counter = 0;
+
     public String fibonacciIteration(Integer n) {
         ArrayList<Integer> fibSequence = new ArrayList<>();
         fibSequence.add(0);
@@ -26,18 +29,24 @@ public class Problem2 {
         return fibSequence.toString();
     }
 
-    public String fibonacciRecursion(Integer n) {
-        ArrayList<Integer> newFibSequence = new ArrayList<>();
-        newFibSequence.add(0);
-        newFibSequence.add(1);
+    public void fibonacciRecursion(Integer n) {
+        if (fibonacciSequence.size() == 0) {
+            fibonacciSequence.add(0);
+            fibonacciSequence.add(1);
+        }
+            Integer indexOfpreviousFibNumber = fibonacciSequence.size() - 2;
+            Integer indexOfcurrentFibNumber = fibonacciSequence.size() - 1;
+            Integer newFibNumber = fibonacciSequence.get(indexOfpreviousFibNumber) + fibonacciSequence.get(indexOfcurrentFibNumber);
+            if (newFibNumber < n) {
+                fibonacciSequence.add(newFibNumber);
+                //System.out.println("We have recursed " + counter + " times");
+                //counter++;
+                fibonacciRecursion(n);
 
-        Integer sizeOfList = newFibSequence.size();
-        Integer nextFibNumber = newFibSequence.get(sizeOfList - 2) + newFibSequence.get(sizeOfList - 1);
+            }
+        }
 
-
-        newFibSequence.add(nextFibNumber);
-
-
-        return newFibSequence.toString();
+    public ArrayList<Integer> getFibonacciSequence() {
+        return fibonacciSequence;
     }
 }
