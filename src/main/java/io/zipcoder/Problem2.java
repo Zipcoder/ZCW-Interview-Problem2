@@ -18,12 +18,7 @@ public class Problem2 {
         return output;
     }
 
-    public String refRecursive(int n) {
-
-    }
-
     public String recursive(int n, String building, int y, int x){//Works if passed 1 and 0 to y and x, respectively.
-                                                            //Trying to optimize above
         if (y>n){
             return "0"+building;
         }

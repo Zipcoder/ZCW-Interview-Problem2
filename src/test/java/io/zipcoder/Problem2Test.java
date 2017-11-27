@@ -23,13 +23,13 @@ public class Problem2Test {
         Assert.assertEquals(expected, actual);
     }
 
-    @Test
-    public void testRefRecursive(){
-        Problem2 test=new Problem2();
-        int n = 150;
-        String expected = "0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144";
-        String actual = (test.refRecursive(n));
-        Assert.assertEquals(expected, actual);
-    }
+//    @Test
+//    public void testRefRecursive(){
+//        Problem2 test=new Problem2();
+//        int n = 150;
+//        String expected = "0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144";
+//        String actual = (test.refRecursive(n));
+//        Assert.assertEquals(expected, actual);
+//    }
 
 }
