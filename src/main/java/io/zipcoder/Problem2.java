@@ -15,23 +15,30 @@ public class Problem2 {
         if (n == 0) {
             fibonacciString.append("0");
         }
-        else if (n == 1) {
+        if (n == 1) {
             fibonacciString.append("0 1");
         }
         else {
-            for (int i = 1; i < n; i++) {
-                int nextNumber = numPrevious + numPrePrevious;
-                fibonacciString.append(nextNumber + " ");
+            fibonacciString.append("0, 1, ");
+            for (int nextNum = 0; nextNum < n; nextNum++) {
+                nextNum = numPrevious + numPrePrevious;
+                if(nextNum > n) {
+                    break;
+                }
+                fibonacciString.append(nextNum + ", ");
                 numPrevious = numPrePrevious;
-                numPrePrevious = nextNumber;
+                numPrePrevious = nextNum;
             }
         }
+        fibonacciString.deleteCharAt(fibonacciString.length()-1);
         return fibonacciString.toString();
     }
 
     
-    public String fibonacciRecursion(int n) {
-
-    }
+//    public String fibonacciRecursion(int n) {
+//
+//    }
 
 }
+
+//if num is greater then n, remove it; don't print it
