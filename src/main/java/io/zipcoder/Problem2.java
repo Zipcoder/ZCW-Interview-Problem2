@@ -1,5 +1,7 @@
 package io.zipcoder;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Problem2 {
@@ -11,40 +13,38 @@ public class Problem2 {
         integers.add(1);
         StringBuilder sb = new StringBuilder();
         sb.append("0, 1");
-        int index = 2;
-        while(true){
-            currentInt = integers.get(index-1)+integers.get(index-2);
+        for(int i = 2; integers.get(i-1)+integers.get(i-2) < n; i++){
+            currentInt = integers.get(i-1)+integers.get(i-2);
             integers.add(currentInt);
-            if(currentInt > n){
-                break;
-            }
             sb.append(", "+currentInt);
-            index++;
         }
         return sb.toString();
     }
 
-
-    // Don't work
-    // much easier to work with ints for recursion
-    /*public int fibonacciRecursion(int n){
-
-        if()
-        sb.append(fibonacciRecursion(n - 1) + fibonacciRecursion(n - 2));
-        return null;
+    public ArrayList<Integer> fibonacciRecursion(int max){
+        ArrayList<Integer> fibs = new ArrayList<Integer>();
+        fibs.add(0);
+        fibs.add(1);
+        return fibonacciRecursion(fibs, max);
     }
 
-    public String printFibonacciRecursion(int[] array){
-        StringBuilder sb = new StringBuilder();
-        for(int i: array){
-            if(i < array.length-1) {
-                sb.append(i + ", ");
-            } else {
-                sb.append(i);
-            }
+    private ArrayList<Integer> fibonacciRecursion(ArrayList<Integer> fibs, int max){
+        int nextFib = fibs.get(fibs.size()-1) + fibs.get(fibs.size() - 2);
+        if(nextFib > max){
+            return fibs;
         }
-        return sb.toString();
-    }*/
+        fibs.add(nextFib);
+        return fibonacciRecursion(fibs, max);
+    }
 
+    public String printFibonacciRecursion(ArrayList<Integer> fibs){
+        if(fibs.size() == 1){
+            return "" + fibs.get(0);
+        } else {
+            String output = fibs.get(0) + ", ";
+            fibs.remove(0);
+            return output + printFibonacciRecursion(fibs);
+        }
+    }
 
 }
