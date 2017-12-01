@@ -1,9 +1,5 @@
 package io.zipcoder;
 
-import java.util.StringTokenizer;
-
-//complies, but test is not passing....
-
 public class Problem2 {
 
     int numPrevious = 0;
@@ -16,13 +12,12 @@ public class Problem2 {
             fibonacciString.append("0");
         }
         if (n == 1) {
-            fibonacciString.append("0 1");
-        }
-        else {
+            fibonacciString.append("0, 1");
+        } else {
             fibonacciString.append("0, 1, ");
             for (int nextNum = 0; nextNum < n; nextNum++) {
                 nextNum = numPrevious + numPrePrevious;
-                if(nextNum > n) {
+                if (nextNum > n) {
                     break;
                 }
                 fibonacciString.append(nextNum + ", ");
@@ -30,15 +25,12 @@ public class Problem2 {
                 numPrePrevious = nextNum;
             }
         }
-        fibonacciString.deleteCharAt(fibonacciString.length()-1);
+        fibonacciString.setLength(fibonacciString.length() - 2);
         return fibonacciString.toString();
     }
-
     
 //    public String fibonacciRecursion(int n) {
 //
 //    }
 
 }
-
-//if num is greater then n, remove it; don't print it
